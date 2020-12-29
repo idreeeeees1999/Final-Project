@@ -1,0 +1,29 @@
+extends ../layout
+
+
+block content
+    .row
+        .col-md-6
+            h1 Product List
+        .col-md-6
+            a(href="/products/add" class="btn btn-primary") Add Item
+        table.table
+            thead
+                tr
+                    th J. Cloth Type
+                    th J. Cloth Price
+                    th City
+                    th Location
+                    th Custom Details
+            tbody
+                each product in products
+                    tr 
+                        td=product.name
+                        td=product.price
+                        td=product.city
+                        td=product.location
+                        td=product.detail
+                        td  
+                            a(href="/products/delete/"+product._id    class="btn btn-danger") Remove
+                            a(href="/products/edit/"+product._id    class="btn btn-info") Update
+                            a(href="/products/cart/"+product._id    class="btn btn-info ml-3") Add To Cart
